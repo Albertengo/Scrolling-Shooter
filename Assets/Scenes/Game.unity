@@ -564,6 +564,7 @@ GameObject:
   - component: {fileID: 951320452}
   - component: {fileID: 951320451}
   - component: {fileID: 951320450}
+  - component: {fileID: 951320456}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -698,8 +699,23 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 964852680}
+  - {fileID: 1321866515}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &951320456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951320449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0544473aebb3a4c932da00e0dcbd7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BalaPrefab: {fileID: 1590539074588459514, guid: 45856c8baf4609f438dae82b41111f99, type: 3}
+  FirePoint: {fileID: 1321866515}
 --- !u!1 &960478593
 GameObject:
   m_ObjectHideFlags: 3
@@ -980,6 +996,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5497571922015254458, guid: 26d8a77ffa920e842bd70c85631a743c, type: 3}
   m_PrefabInstance: {fileID: 964852679}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1321866514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1321866515}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1321866515
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321866514}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.271, y: 0, z: 0.025}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 951320455}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1432352763
 GameObject:
   m_ObjectHideFlags: 3
