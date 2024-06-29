@@ -1,3 +1,4 @@
+using disparos;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,12 +11,16 @@ public class Enemy : MonoBehaviour
     public GameObject BalaPrefab;
     public Transform FirePoint;
 
+    [Header("Shooting properties")]
+    public float shootCooldown = 2f; // Time between shots
+    private float shootTimer;
+
     [Header("Spawn properties")]
     public float Tvivo = 0f;
     public float TMAXvida = 20f;
     void Start()
     {
-        
+        shootTimer = shootCooldown;
     }
 
     // Update is called once per frame
@@ -27,13 +32,19 @@ public class Enemy : MonoBehaviour
     }
     void movement()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed, Space.World); //constantemente se mueve al frente
+        transform.Translate(Vector3.left * Time.deltaTime * speed, Space.World); //constantemente se mueve al frente
     }
 
     void shoot()
     {
-        Instantiate(BalaPrefab, FirePoint.position, FirePoint.rotation);
+        shootTimer -= Time.deltaTime; //Disminuir timer
 
+        if (shootTimer <= 0f)
+        {
+            Instantiate(BalaPrefab, FirePoint.position, FirePoint.rotation);
+            Destroy(BalaPrefab, 5f); // Destruir bala después de 5 segundos
+            shootTimer = shootCooldown; // Resetear el timer
+        }
     }
 
     void Destroy()

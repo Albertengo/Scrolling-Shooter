@@ -1341,26 +1341,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 2120291746461793572, guid: 0607d9ab8ce7a5746ad33834c8f05ab1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.0000004768371
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120291746461793572, guid: 0607d9ab8ce7a5746ad33834c8f05ab1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120291746461793572, guid: 0607d9ab8ce7a5746ad33834c8f05ab1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120291746461793572, guid: 0607d9ab8ce7a5746ad33834c8f05ab1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120291746461793572, guid: 0607d9ab8ce7a5746ad33834c8f05ab1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
     - target: {fileID: 6717577488748833078, guid: 0607d9ab8ce7a5746ad33834c8f05ab1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.0558023
