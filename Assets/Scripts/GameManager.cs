@@ -27,12 +27,6 @@ public class ControlJuego : MonoBehaviour
 
     //void Update()
     //{
-    //    if (tiempoRestante == 0) //si se acaba el tiempo, gameover.
-    //    {
-    //        ComenzarJuego();
-    //        screenL.ActiveScreen();
-    //        slider.Desactivar();
-    //    }
     //    if (Enemies.Kills == 8) //si se eliminan 8 enemigos, gameover.
     //    {
     //        screenW.ActiveScreen();

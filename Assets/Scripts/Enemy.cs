@@ -46,6 +46,15 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider collision) //para boosters y killzone
+    {
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.tag == "Bullet")
+        {
+            //transform.position = Spawnposition;
+            health--;
+        }
+    }
+
     void Destroy()
     {
         Tvivo += Time.deltaTime; //contador
