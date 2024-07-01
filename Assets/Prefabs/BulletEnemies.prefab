@@ -243,4 +243,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 10
   rbBullet: {fileID: 8668617815245300079}
-  tiempo: 2
+  tiempo: 3

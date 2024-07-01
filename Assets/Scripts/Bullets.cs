@@ -18,9 +18,12 @@ namespace disparos
         void Start()
         {
             rbBullet.velocity = transform.right * velocidad;
-            Destroy(gameObject, tiempo);
         }
 
+        private void Update()
+        {
+            Destroy(gameObject, tiempo);
+        }
         #endregion
 
         #region code
