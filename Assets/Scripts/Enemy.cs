@@ -48,10 +48,12 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision) //para boosters y killzone
     {
-        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "Bullet")
         {
             //transform.position = Spawnposition;
             health--;
+            VidaTerminada();
+            Debug.Log("Vida enemigo: " + health);
         }
     }
 
@@ -61,6 +63,14 @@ public class Enemy : MonoBehaviour
         if (Tvivo > TMAXvida)
         {
             Destroy(this.gameObject);
+        }
+    }
+    void VidaTerminada()
+    {
+        if (health == 0)
+        {
+            Destroy(this.gameObject);
+            Debug.Log("Enemigo eliminado.");
         }
     }
 }
