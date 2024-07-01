@@ -24,10 +24,10 @@ namespace disparos
         #endregion
 
         #region code
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter(Collider collision)
         {
 
-            if (collision.gameObject.tag == "Enemy1" || collision.gameObject.tag == "Enemy2" || collision.gameObject.tag == "Enemy3")
+            if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Player")
             {
                 Destroy(gameObject);
             }

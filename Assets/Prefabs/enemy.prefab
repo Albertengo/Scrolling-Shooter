@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2781751095866030348}
   m_Layer: 0
   m_Name: enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,6 +125,7 @@ MonoBehaviour:
   health: 5
   BalaPrefab: {fileID: 3682017506089430306, guid: 0be6478a82001fd4c8a3b4ee036f3fbe, type: 3}
   FirePoint: {fileID: 2120291746461793572}
+  shootCooldown: 2
   Tvivo: 0
   TMAXvida: 20
 --- !u!1 &2951020274408587662

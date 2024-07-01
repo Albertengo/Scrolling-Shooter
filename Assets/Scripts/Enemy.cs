@@ -42,7 +42,6 @@ public class Enemy : MonoBehaviour
         if (shootTimer <= 0f)
         {
             Instantiate(BalaPrefab, FirePoint.position, FirePoint.rotation);
-            Destroy(BalaPrefab, 5f); // Destruir bala después de 5 segundos
             shootTimer = shootCooldown; // Resetear el timer
         }
     }
