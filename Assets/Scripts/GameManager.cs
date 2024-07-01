@@ -1,68 +1,67 @@
 using System.Collections;
 using UnityEngine;
 using interfaz;
+using enemies;
+using UnityEngine.Device;
+using TMPro;
 
-public class ControlJuego : MonoBehaviour
+namespace interfaz
 {
-    //script que maneja condiciones de derrota/victoria, un poco de UI & spawns
-    #region Variables
-    public GameObject jugador;
-    public GameObject[] enemyPrefabs;
-    private int xPos;
-    private int zPos;
-    public static int CantidadEnemigos; //objetivo de enemigos a eliminar dentro del juego
-
-    //UI
-    //public Win_Lose screenW;
-    //public Win_Lose screenL;
-    //public SliderHealth slider;
-    public static float tiempoRestante;
-    #endregion
-
-    #region voids basicos
-    void Start()
+    public class GameManager : MonoBehaviour
     {
-        ComenzarJuego();
-    }
+        //script que maneja condiciones de derrota/victoria, un poco de UI & spawns
+        #region Variables
+        //public GameObject jugador;
+        //public GameObject[] enemyPrefabs;
+        //public Spawner EnemiesSpawner;
 
-    //void Update()
-    //{
-    //    if (Enemies.Kills == 8) //si se eliminan 8 enemigos, gameover.
-    //    {
-    //        screenW.ActiveScreen();
-    //        slider.Desactivar();
-    //    }
-    //}
-    #endregion
+        [Header("UI")]
+        public Win_Lose screenW;
+        public Win_Lose screenL;
+        //public SliderHealth slider;
+        public TextMeshProUGUI textoTiempo;
+        public TextMeshProUGUI textoKills;
+        public static float tiempoRestante;
+        #endregion
 
-    #region Code
-    void ComenzarJuego()
-    {
-        jugador.transform.position = new Vector2(0f, 1.07f);
-        StartCoroutine(SpawnEnemigos());
-        StartCoroutine(Cronometro(30));
-        //Random.Range(1, 10);
-    }
-    IEnumerator SpawnEnemigos()
-    {
-        while (CantidadEnemigos < 8)
+        #region voids basicos
+        void Start()
         {
-            xPos = Random.Range(-5, 5); //randomiza posicion de enemigos
-            zPos = Random.Range(-5, 5);
-            int enemyIndex = Random.Range(0, enemyPrefabs.Length); //randomiza tipo de enemigo a spawnear
-            Instantiate(enemyPrefabs[enemyIndex], new Vector3(xPos, 1, zPos), Quaternion.identity);
-            yield return new WaitForSeconds(3f); //espera un tiempo antes de volver a spawnear un enemigo
-            CantidadEnemigos += 1; //para que no sean más de 8 enemigos
+            Time.timeScale = 1f;
+            ComenzarJuego();
         }
-    }
-    public IEnumerator Cronometro(float valorCronometro = 30)
-    {
-        tiempoRestante = valorCronometro;
-        while (tiempoRestante > 0)
+
+        void Update()
         {
-            yield return new WaitForSeconds(1.0f);
-            tiempoRestante--;
+            if (Enemy.enemyKills == 6) //si se eliminan 8 enemigos, gameover.
+            {
+                screenW.ActiveScreen();
+                //slider.Desactivar();
+            }
+            if (tiempoRestante == 0) //si se acaba el tiempo, gameover.
+            {
+                screenL.ActiveScreen();
+                //slider.Desactivar();
+            }
+            textoTiempo.text = "Seconds left: " + tiempoRestante;
+            textoKills.text = "Enemies eliminated: " + Enemy.enemyKills + "/6";
         }
+        #endregion
+
+        #region Code
+        void ComenzarJuego()
+        {
+            StartCoroutine(Cronometro(30));
+        }
+        public IEnumerator Cronometro(float valorCronometro = 30)
+        {
+            tiempoRestante = valorCronometro;
+            while (tiempoRestante > 0)
+            {
+                yield return new WaitForSeconds(1.0f);
+                tiempoRestante--;
+            }
+        }
+        #endregion
     }
-    #endregion
 }

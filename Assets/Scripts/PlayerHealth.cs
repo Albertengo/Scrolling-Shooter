@@ -18,15 +18,13 @@ namespace Player
 
         [Header("UI")]
         public TextMeshProUGUI textoVidas;
-        //public Win_Lose screenL;
+        public Win_Lose screenL;
         //public Win_Lose screenW;
 
 
         void Start()
         {
             Vida = VidasMax;
-            //textoVidas = GetComponent<TextMeshProUGUI>();
-            //Spawnposition = transform.position;
         }
 
         // Update is called once per frame
@@ -46,8 +44,8 @@ namespace Player
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 //SceneManager.LoadScene("Game");
-                //screenL.ActiveScreen();
                 Time.timeScale = 0f;
+                screenL.ActiveScreen();
             }
         }
 
@@ -55,7 +53,8 @@ namespace Player
         {
             if (Vida == 0)
             {
-                //screenL.ActiveScreen();
+                screenL.ActiveScreen();
+                Time.timeScale = 0f;
                 Debug.Log("Moriste...");
             }
         }
